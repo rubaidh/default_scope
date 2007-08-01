@@ -8,7 +8,7 @@ module Rubaidh
       def default_scope(options = {})
         # Extend by setting up the new find and count.
         unless extended_by.include? ClassMethods
-          class_inheritable_accessor :default_scope_options
+          class_inheritable_hash :default_scope_options
           extend ClassMethods
           class << self
             alias_method_chain :find, :default_scope
